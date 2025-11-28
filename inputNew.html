@@ -6,7 +6,7 @@
                     document.querySelector('button').addEventListener('click', function() {
                         const email = document.getElementById('email').value;
                         const name = document.getElementById('name').value;
-                        const url = `https://j0l5o0r4ae.execute-api.eu-west-1.amazonaws.com/default/Vidu_MS_2?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`;
+                        const url = `https://iippxrjcgj.execute-api.eu-west-1.amazonaws.com/default/ViduSaveData_1?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`;
                         
                         fetch(url)
                             .then(response => response.json())
@@ -34,4 +34,5 @@
 
 
 </html>
+
 
