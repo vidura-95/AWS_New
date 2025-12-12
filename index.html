@@ -5,7 +5,7 @@
             document.addEventListener('DOMContentLoaded', function() {
                 document.querySelector('button').addEventListener('click', function() {
                     const email = document.getElementById('email').value;
-                    const name = document.getElementById('name').value;
+                    const name = document.getElementById('name').value.trim();
                     const url = 'https://jy1hd9zgbb.execute-api.eu-west-1.amazonaws.com/default/ViduWritetoTopic';
 
                     fetch(url, {
