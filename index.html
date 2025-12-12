@@ -1,9 +1,46 @@
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title>My Website Home Page</title>
-</head>
-<body>
-  <h1>Welcome to my website</h1>
-  <p>Now hosted on Amazon S3!</p>
-</body>
+<html>
+    <head>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector('button').addEventListener('click', function() {
+                    const email = document.getElementById('email').value;
+                    const name = document.getElementById('name').value;
+                    const url = 'https://iippxrjcgj.execute-api.eu-west-1.amazonaws.com/default/ViduWritetoTopic';
+
+                    fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            name: name,
+                            email: email
+                        })
+                    })
+                        .then(response => response.json())
+                        .then(data => console.log(data))
+                        .catch(error => console.error('Error:', error));
+                });
+            });
+        </script>
+
+    </head>
+
+    <body>
+        Hello HTW
+
+        # add two input field s and a button
+        <form>
+            <input type="text" id="email" name="email" >
+            <input type="text" id="name" name="name" >
+
+            <button type="button">Submit</button>
+        </form> 
+
+    </body>
+
+
 </html>
+
+
