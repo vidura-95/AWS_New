@@ -1,21 +1,30 @@
 <html>
     <head>
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
 
-                    document.querySelector('button').addEventListener('click', function() {
-                        const email = document.getElementById('email').value;
-                        const name = document.getElementById('name').value;
-                        const url = `https://iippxrjcgj.execute-api.eu-west-1.amazonaws.com/default/ViduWritetoTopic?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`;
-                        
-                        fetch(url)
-                            .then(response => response.json())
-                            .then(data => console.log(data))
-                            .catch(error => console.error('Error:', error));
-                    });
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector('button').addEventListener('click', function() {
+                    const email = document.getElementById('email').value;
+                    const name = document.getElementById('name').value;
+                    const url = 'https://h35980n9xk.execute-api.eu-west-1.amazonaws.com/default/nicoSaveOrder';
+
+                    fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            name: name,
+                            email: email
+                        })
+                    })
+                        .then(response => response.json())
+                        .then(data => console.log(data))
+                        .catch(error => console.error('Error:', error));
+                });
             });
+        </script>
 
-            </script>
     </head>
 
     <body>
@@ -23,17 +32,13 @@
 
         # add two input field s and a button
         <form>
-            <input type="text" id="name" name="name" >
             <input type="text" id="email" name="email" >
-            
+            <input type="text" id="name" name="name" >
+
             <button type="button">Submit</button>
         </form> 
 
     </body>
 
 
-
 </html>
-
-
-
